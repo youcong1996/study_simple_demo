@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>报销单</title>
+<style type="text/css" rel="stylesheet">
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: "Microsoft YaHei UI";
+    font-size: 12px;
+    max-width: 555px;
+    margin: 0 auto;
+    padding: 20px;
+}
+h1 {
+    text-align: center;
+    font-size: 18px;
+    color: #000;
+    font-weight: bold;
+}
+.comptitle {
+    height: 66px;
+}
+.comptitle h2 {
+    float: left;
+    height: 66px;
+    line-height: 66px;
+    font-size: 14px;
+    color: #000;
+    font-weight: bold;
+}
+.barcode {
+    width: 162px;
+    float: right;
+    padding: 10px 0;
+    text-align: center;
+}
+.barcode img {
+    width: 162px;
+    height: 30px;
+    display: table-cell;
+    vertical-align: middle;
+    margin-bottom: 5px;
+}
+.barcode h3 {
+    font-size: 12px;
+    color: #000;
+}
+.stafftbl, .detailstbl, .approverrd {
+    border-collapse: collapse;
+    border: 1px solid #f3f3f3;
+}
+.stafftbl th, .stafftbl td, .detailstbl th, .detailstbl td, .approverrd th, .approverrd td {
+    height: 20px;
+    line-height: 20px;
+    border: 1px solid #f3f3f3;
+}
+.stafftbl th {
+    font-weight: normal;
+    background: #f8f9fd;
+    text-align: right;
+    color: #777;
+    padding-right: 12px;
+}
+.stafftbl td {
+    padding-left: 10px;
+}
+.wrap p {
+    color: #000;
+    margin: 12px 0 10px;
+}
+.detailstbl th, .approverrd th {
+    font-weight: normal;
+    color: #777;
+    background: #f8f9fd;
+    border: none;
+}
+.detailstbl td, .approverrd td {
+    text-align: center;
+}
+.sum {
+    background: #f8f9fd;
+    color: #777;
+}
+.detailstbl td.sumdata {
+    text-align: right;
+    padding-right: 20px;
+    font-weight: bold;
+}
+</style>
+</head>
+
+<body>
+<div class="wrap">
+  <h1>费用报销单</h1>
+  <div class="comptitle">
+    <h2>*****有限公司</h2>
+    <div class="barcode"><img src="E://Demo//workspace//mypdf//src//main//resources//images//00e5b3d8-51b1-4cf3-9b71-35774f4c2873.png" alt=""></img>
+       <h3>12345678910</h3>
+    </div>
+  </div>
+  <table width="100%" border="0" cellspacing="0" cellpadding="0" class="stafftbl">
+    <tbody>
+      <tr>
+        <th width="18%">报销人</th>
+        <td width="32%">游总</td>
+        <th width="18%">填写日期</th>
+        <td>2018-09-18</td>
+      </tr>
+      <tr>
+        <th>费用所属部门</th>
+        <td colspan="3">研发平台</td>
+      </tr>
+      <tr>
+        <th>所属项目</th>
+        <td colspan="3">运营平台2.0</td>
+      </tr>
+      <tr>
+        <th>报销事由</th>
+        <td colspan="3"></td>
+      </tr>
+    </tbody>
+  </table>
+  <p>费用明细</p>
+  <table width="100%" border="0" cellspacing="0" cellpadding="0" class="detailstbl">
+    <tbody>
+      <tr>
+	   
+        <th width="8%">序号</th>
+        <th>发票类型</th>
+        <th width="10%">发票张数</th>
+        <th width="12%">发票金额</th>
+        <th width="12%">报销金额</th>
+        <th>专票税额</th>
+        <th width="28%">用途</th>
+      </tr>
+      <tr>
+        <td >1</td>
+        <td>普通发票</td>
+        <td>1</td>
+        <td>¥100</td>
+        <td>¥100</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td >1</td>
+        <td>普通发票</td>
+        <td>1</td>
+        <td>¥100</td>
+        <td>¥100</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td colspan="2" class="sum">总报销金额（小写）</td>
+        <td colspan="5" class="sumdata" >¥259.46</td>
+      </tr>
+      <tr>
+        <td colspan="2" class="sum">总报销金额（大写）</td>
+        <td colspan="5" class="sumdata" >贰佰伍拾玖元肆角陆分</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>审批记录</p>
+  <table width="100%" border="0" cellspacing="0" cellpadding="0" class="approverrd">
+    <tbody>
+      <tr>
+        <th width="8%">序号</th>
+        <th>节点名称</th>
+        <th>电子签名</th>
+        <th>签名日期</th>
+        <th width="8%">操作</th>
+        <th width="25%">备注</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>提交</td>
+        <td>张三/平台支撑部</td>
+        <td>2018-09-18  16:18:41</td>
+        <td>提交</td>
+        <td>&nbsp;</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>
