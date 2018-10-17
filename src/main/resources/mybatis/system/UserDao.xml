@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.blog.mapper.UserDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.blog.entity.User">
+        <id column="user_id" property="userId" />
+        <result column="login_code" property="loginCode" />
+        <result column="user_name" property="userName" />
+        <result column="password" property="password" />
+        <result column="sex" property="sex" />
+        <result column="identity_card" property="identityCard" />
+        <result column="create_time" property="createTime" />
+        <result column="create_by" property="createBy" />
+        <result column="update_time" property="updateTime" />
+        <result column="update_by" property="updateBy" />
+        <result column="status" property="status" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        user_id AS userId, login_code AS loginCode, user_name AS userName, password, sex, identity_card AS identityCard, create_time AS createTime, create_by AS createBy, update_time AS updateTime, update_by AS updateBy, status
+    </sql>
+
+</mapper>
