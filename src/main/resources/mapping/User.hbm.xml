@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="cn.blog.entity.User" table="user">
+        <id name="userId" type="java.lang.Integer">
+            <column name="user_id"/>
+            <generator class="identity" />
+        </id>
+        <!-- 映射CrUser类中的code属性 -->
+        <property name="loginCode" type="string">
+            <column name="login_code" length="10" not-null="true" unique="true" />
+        </property>
+        <property name="userName" type="string">
+            <column name="user_name" length="20" not-null="true" unique="true" />
+        </property>
+         <property name="password" type="string">
+            <column name="password" length="20" not-null="true" unique="true" />
+        </property>
+
+        
+        <property name="sex" type="java.lang.Integer">
+            <column name="sex" length="20" not-null="true" unique="true" />
+        </property>
+        
+            
+        <property name="identityCard" type="string">
+            <column name="identity_card" length="20" not-null="true" unique="true" />
+        </property>
+        
+            
+        <property name="createTime" type="string">
+            <column name="create_time" length="20" not-null="true" unique="true" />
+        </property>
+        
+            
+        <property name="createBy" type="string">
+            <column name="create_by" length="20" not-null="true" unique="true" />
+        </property>
+        
+            
+        <property name="updateTime" type="string">
+            <column name="update_time" length="20" not-null="true" unique="true" />
+        </property>
+        
+        <property name="updateBy" type="string">
+            <column name="update_by" length="20" not-null="true" unique="true" />
+        </property>
+        
+        <property name="status" type="java.lang.Integer">
+            <column name="status" length="20" not-null="true" unique="true" />
+        </property>
+        
+    </class>
+</hibernate-mapping>
