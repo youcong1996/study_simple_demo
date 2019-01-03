@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: kafka_demo
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: eluzhu
+Implementation-Vendor-Id: cn.test
+Build-Jdk: 1.8.0_152
+Implementation-URL: http://projects.spring.io/spring-boot/kafka_demo/
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
+
