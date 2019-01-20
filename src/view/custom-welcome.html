@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自定义欢迎页</title>
+    <link rel="stylesheet" href="../../lib/bootstrap-3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../lib/layui/css/layui.css">
+    <style>
+        html, body, #app {
+            height: 100%;
+        }
+        ::-webkit-scrollbar {
+            width: 10px;
+            height: 10px
+        }
+
+        ::-webkit-scrollbar-track {
+            border-radius: 10px;
+            background-color: #d8dce5
+        }
+
+        ::-webkit-scrollbar-thumb {
+            border-radius: 5px;
+            background-color: #adadad
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: #929292
+        }
+
+        ::-webkit-scrollbar-thumb:active {
+            background-color: #666363
+        }
+
+        ::-webkit-scrollbar-corner {
+            background-color: #535353
+        }
+
+        ::-webkit-scrollbar-resizer {
+            background-color: #ff6e00
+        }
+        .page-title {
+            margin-bottom: 20px;
+        }
+
+        .control-label {
+            font-weight: normal;
+        }
+
+        .btn-primary {
+            background-color: #1890ff;
+            border-color: #1890ff;
+            outline: none;
+        }
+
+        .btn-primary:focus,
+        .btn-primary:hover {
+            background-color: #40a9ff;
+            border-color: #40a9ff;
+            outline: none;
+        }
+
+        .btn-primary.active,
+        .btn-primary:active {
+            background-color: #096dd9;
+            border-color: #096dd9;
+            color: #fff;
+            outline: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app" class="container-fluid">
+        <h3 class="page-title">自定义欢迎页</h3>
+        <p class="alert alert-success" style="width: 300px;">{{userName}}，{{time}}好！
+        <span id="info"></span>
+        </p>
+        <form class="form-horizontal">
+            <div class="form-group">
+                <div class="col-sm-6">
+                    <div id="form">
+                        <form>
+                            <p>用户名:<input type="text" id="userName" style="color:black;"/></p>
+                            <p>密&nbsp;&nbsp;码&nbsp;&nbsp;:<input type="password" id="password" style="color:black;"/></p>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" style="color:black;" value="提交" onclick="test()"/>
+                        <input type="button" value="打开" onclick="openLogin()"/>
+                         </form>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" v-model="show"> 启动时显示自定义欢迎页
+                            &nbsp;&nbsp;
+                            <input type="button" onclick="register()" value="退出"/>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+
+
+    </div>
+    <script src="../../lib/jquery/jquery.min.js"></script>
+    <script src="../../lib/bootstrap-3.3.1/js/bootstrap.min.js"></script>
+    <script src="../../lib/vue-2.5.17/vue.js"></script>
+    <script src="../../src/view/custom-welcome.js"></script>
+    <script src="../../lib/layui/layui.js"></script>
+    <script src="../../lib/layer/layer-v3.1.1/layer/mobile/layer.js"></script>
+    <script>
+    function openLogin(){
+        layui.use('layer', function(){
+		  var layer = layui.layer;
+	
+		  layer.open({
+				type: 2,
+				title: 'Login',
+				fix: false,
+				maxmin: true,
+				shadeClose: true,
+				shade: 0.8,
+				area: ['500px', '500px'],
+				content: 'login.html',
+				end: function () {
+			       location.reload();
+			    }
+			});
+		});
+    }
+
+    function test(){
+           var userName = document.getElementById("userName").value;
+
+           if(userName != null && userName != undefined){
+            var xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+                if ((xhr.status >= 200 && xhr.status < 300) || xhr.status == 304) {
+                $("#info").html("登录成功");
+                $("#form").hide();
+                
+                console.log('test:'+xhr.status);
+                console.log(xhr.responseText);
+                } else {
+                console.log("请求成功：" + xhr.status);
+                }
+                }
+                };
+                xhr.open("POST", "http://www.test.com/test-web/sysUser/getUserCodeByInfo?userCode=2", true);
+                xhr.send(null);
+                
+            }else{
+                layui.use('layer', function(){
+                
+                var layer = layui.layer;
+                
+                layer.msg('userName为必填项');
+                }); 
+            }
+
+           }
+    function register(){
+        $("#info").html("");
+        $("#form").show();
+    }
+                
+    </script>
+</body>
+
+</html>
